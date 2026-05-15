@@ -1,0 +1,20 @@
+enable
+configure terminal
+
+hostname Branch-Router
+
+interface fa0/0
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+
+! Default route to HQ
+ip route 0.0.0.0 0.0.0.0 192.168.3.1
+
+! RIP
+router rip
+version 2
+network 192.168.2.0
+network 192.168.3.0
+
+end
+write memory

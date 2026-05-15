@@ -1,0 +1,21 @@
+enable
+configure terminal
+
+vlan 10
+name ADMIN
+
+vlan 20
+name SALES
+
+vlan 60
+name VOICE
+
+interface fa0/3
+switchport mode trunk
+
+interface fa0/1
+switchport access vlan 10
+switchport voice vlan 60
+
+end
+write memory
